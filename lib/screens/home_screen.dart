@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:healtec_medical_appointment_app/main.dart';
 import 'package:healtec_medical_appointment_app/widgets/favourite_doctor_widget.dart';
 import 'package:healtec_medical_appointment_app/widgets/home_filter_widget.dart';
 import 'package:healtec_medical_appointment_app/widgets/top_doctor_widget.dart';
@@ -10,6 +11,9 @@ class HomeScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      ref.read(systemIconColorProvider.notifier).state = Colors.white;
+    });
     final List<Map<String, String>> doctors = [
       {
         'name': "Dr. Esther",

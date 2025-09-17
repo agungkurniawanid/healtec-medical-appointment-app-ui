@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:healtec_medical_appointment_app/main.dart';
+import 'package:healtec_medical_appointment_app/screens/appoinment_voice_call.dart';
 import 'package:healtec_medical_appointment_app/widgets/favourite_doctor_widget.dart';
 
 class AppointmentDetailScreen extends ConsumerWidget {
@@ -9,6 +11,9 @@ class AppointmentDetailScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      ref.read(systemIconColorProvider.notifier).state = Colors.black;
+    });
     final List<Map<String, dynamic>> experienceBadge = [
       {
         "icon": FontAwesomeIcons.peopleGroup,
@@ -53,11 +58,13 @@ class AppointmentDetailScreen extends ConsumerWidget {
                   const Spacer(),
                 ],
               ),
+
               const SizedBox(height: 32.0),
               const FavouriteDoctorWidget(
                 image: "assets/doctor4.png",
                 reviews: "(332 Reviews)",
               ),
+
               const SizedBox(height: 32),
               GridView.builder(
                 shrinkWrap: true,
@@ -85,7 +92,14 @@ class AppointmentDetailScreen extends ConsumerWidget {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => const AppoinmentVoiceCall(),
+                      ),
+                    );
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Color(0xFF4C4DDC),
                     padding: EdgeInsets.symmetric(horizontal: 16, vertical: 20),
