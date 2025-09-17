@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:healtec_medical_appointment_app/screens/onboarding_screen.dart';
 
@@ -12,16 +11,10 @@ class MyApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    SystemChrome.setSystemUIOverlayStyle(
-      const SystemUiOverlayStyle(
-        statusBarColor: Colors.white,
-        statusBarIconBrightness: Brightness.dark,
-      ),
-    );
     return MaterialApp(
       title: 'Healtec - Medical Appointment App',
       debugShowCheckedModeBanner: false,
-      home: const Scaffold(body: OnboardingAScreen()),
+      home: OnboardingAScreen(),
     );
   }
 }
