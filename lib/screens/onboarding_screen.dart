@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:healtec_medical_appointment_app/navigation_controller.dart';
+import 'package:healtec_medical_appointment_app/screens/home_screen.dart';
 
 class OnboardingAScreen extends ConsumerWidget {
   const OnboardingAScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    SystemChrome.setSystemUIOverlayStyle(
-      const SystemUiOverlayStyle(statusBarIconBrightness: Brightness.light),
-    );
     return Scaffold(
       body: Container(
         width: MediaQuery.of(context).size.width,

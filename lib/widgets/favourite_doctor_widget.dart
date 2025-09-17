@@ -3,13 +3,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class FavouriteDoctorWidget extends ConsumerWidget {
-  final String? name, image, specialist, rating;
+  final String? name, image, specialist, rating, reviews;
   const FavouriteDoctorWidget({
     super.key,
     this.name,
     this.image,
     this.specialist,
     this.rating,
+    this.reviews,
   });
 
   @override
@@ -57,12 +58,26 @@ class FavouriteDoctorWidget extends ConsumerWidget {
                         fontWeight: FontWeight.w500,
                       ),
                     ),
-                    Text(
-                      '⭐ ${rating ?? "4.5"}',
-                      style: GoogleFonts.roboto(
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                      ),
+                    Row(
+                      children: [
+                        Text(
+                          '⭐ ${rating ?? "4.5"}',
+                          style: GoogleFonts.roboto(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(width: 4),
+                        if (reviews != null)
+                          Text(
+                            reviews!,
+                            style: GoogleFonts.roboto(
+                              fontSize: 14,
+                              fontWeight: FontWeight.normal,
+                              color: Color(0xFF939393),
+                            ),
+                          ),
+                      ],
                     ),
                   ],
                 ),

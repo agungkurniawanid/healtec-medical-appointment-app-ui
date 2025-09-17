@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:healtec_medical_appointment_app/widgets/favourite_doctor_widget.dart';
@@ -11,10 +10,6 @@ class HomeScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    SystemChrome.setSystemUIOverlayStyle(
-      const SystemUiOverlayStyle(statusBarIconBrightness: Brightness.light),
-    );
-
     final List<Map<String, String>> doctors = [
       {
         'name': "Dr. Esther",
